@@ -29,7 +29,8 @@ El sistema también registra cada intento de envío mediante un logger **Singlet
 
 ## 🧱 Estructura del Proyecto
 
-Laboratory1/
+```
+Laboratory1/1001185516
 ├── app.py
 ├── models/
 │ └── user.py
@@ -44,6 +45,7 @@ Laboratory1/
 ├── utils/
 │ └── logger.py
 └── requirements.txt
+```
 
 ---
 
@@ -84,11 +86,13 @@ http://127.0.0.1:5000/usuarios [POST] --> Ten en cuenta el POST como metodo
 
 En el "body" ponemos raw y pegamos el JSON de prueba
 
+```bash
 {
   "name": "Juan David Ramirez",
   "preferred_channel": "email",
   "available_channels": ["email", "sms", "call"]
 }
+```
 
 La salida nos debe arrojar un mensaje de verificación
 
@@ -98,10 +102,12 @@ http://127.0.0.1:5000/notificaciones/enviar [POST] --> Recuerda el metodo POST
 
 Igual que con el endpoint anterior, ponemos en postman en "body" raw y copiamos el JSON de prueba
 
+```bash
 {
   "user_name": "Juan David Ramirez",
   "message": "Tu cita es mañana a las 9:00 AM."
 }
+```
 
 Nos genera un mensaje de entrada y verificamos que no hay error
 
@@ -113,7 +119,9 @@ El resultado es un listado JSON con los intentos de notificación, tanto los fal
 
 Para ver la documentación en swagger, debemos ejecutar el servicio de Flask y luego ir a la URL:
 
+```
 http://127.0.0.1:5000/apidocs
+```
 
 ## 📘 Diagrama de clases
 
