@@ -67,7 +67,7 @@ El `LoggerSingleton` se asegura de que todos los intentos de envío se registren
 
 ```bash
 git clone https://github.com/SwEng2-2025i/MV7h.git
-(elegir rama diferente)
+git checkout JuanDavidRamirez
 cd Laboratory1
 ```
 
@@ -82,7 +82,9 @@ python app.py o con el compilador que se tenga
 
 Primeramente se debe ejecutar postman, abrimos la cuenta y añadimos conexion, en la URL ponemos:
 
+```
 http://127.0.0.1:5000/usuarios [POST] --> Ten en cuenta el POST como metodo
+```
 
 En el "body" ponemos raw y pegamos el JSON de prueba
 
@@ -98,7 +100,9 @@ La salida nos debe arrojar un mensaje de verificación
 
 Luego de esto, ejecutamos cambiando la URL, esto para probar el sistema de notificaciones:
 
+```
 http://127.0.0.1:5000/notificaciones/enviar [POST] --> Recuerda el metodo POST
+```
 
 Igual que con el endpoint anterior, ponemos en postman en "body" raw y copiamos el JSON de prueba
 
@@ -113,7 +117,9 @@ Nos genera un mensaje de entrada y verificamos que no hay error
 
 Por ultimo para pedir las listas de intentos de ingreso, ponemos en la URL lo siguiente:
 
+```
 http://127.0.0.1:5000/logs [GET] --> Recuerda el metodo GET (Cambialo)
+```
 
 El resultado es un listado JSON con los intentos de notificación, tanto los fallidos como los exitosos
 
