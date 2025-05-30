@@ -39,7 +39,7 @@ Lista todos los usuarios.
 
 ## 🏗️ Diagrama de Clases
 
-![alt text](bLHVRze-57tFfx3wyalq6vNs6esfBCre99gW11wggOfCkAIM71lPfXhQzjtdsCQGZeBw0lBzSyyvroU-ameBjUjey1yQZySepHVP_UG-hVfJq50i9LfA4EXNWD08CTn1ZAGIvhGLi04XO5qtBvWneCSKViM4uXM5Gqh6Y1AfVkY2v-1Fu4RdN94DQR0Yd3c8dKQhXpWTI8dR0J3XWgYz.png)
+![Diagrama de clases](diagrama%de%clases.png)
 
 ## 🛠️ Instrucciones
 
