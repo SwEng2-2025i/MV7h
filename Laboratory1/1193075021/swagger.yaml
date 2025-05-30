@@ -1,0 +1,183 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Multichannel Notification System API"
+  description: |
+    API REST para gestionar usuarios y enviar notificaciones a través de múltiples canales
+    (email, SMS, consola) usando Chain of Responsibility y Singleton.
+  contact:
+    name: "Tu Nombre Completo"
+host: "localhost:5000"
+basePath: "/"
+schemes:
+  - "http"
+securityDefinitions:
+  BearerAuth:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+paths:
+
+  /users:
+    post:
+      summary: "Registrar un nuevo usuario"
+      description: "Crea un usuario con canales preferido y disponibles."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: "header"
+          name: "Authorization"
+          type: "string"
+          required: true
+          description: "Token de autorización"
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/NewUser"
+      responses:
+        "201":
+          description: "Usuario creado correctamente"
+          schema:
+            $ref: "#/definitions/MessageResponse"
+        "400":
+          description: "Petición malformada"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        "401":
+          description: "Authorization header faltante o inválido"
+    get:
+      summary: "Listar todos los usuarios"
+      description: "Obtiene la lista de usuarios registrados."
+      produces:
+        - "application/json"
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: "header"
+          name: "Authorization"
+          type: "string"
+          required: true
+          description: "Token de autorización"
+      responses:
+        "200":
+          description: "Lista de usuarios"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/User"
+        "401":
+          description: "Authorization header faltante o inválido"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /notifications/send:
+    post:
+      summary: "Enviar notificación"
+      description: "Envía un mensaje de notificación usando el canal preferido y fallback."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: "header"
+          name: "Authorization"
+          type: "string"
+          required: true
+          description: "Token de autorización"
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/NotificationRequest"
+      responses:
+        "200":
+          description: "Resultado del envío"
+          schema:
+            $ref: "#/definitions/NotificationResponse"
+        "400":
+          description: "Petición malformada o usuario no existe"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        "401":
+          description: "Authorization header faltante o inválido"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+definitions:
+  NewUser:
+    type: "object"
+    required:
+      - "name"
+      - "preferred_channel"
+      - "available_channels"
+    properties:
+      name:
+        type: "string"
+        example: "Juan"
+      preferred_channel:
+        type: "string"
+        enum: ["email", "sms", "console"]
+        example: "email"
+      available_channels:
+        type: "array"
+        items:
+          type: "string"
+          enum: ["email", "sms", "console"]
+        example: ["email", "sms", "console"]
+
+  User:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      preferred_channel:
+        type: "string"
+      available_channels:
+        type: "array"
+        items:
+          type: "string"
+
+  NotificationRequest:
+    type: "object"
+    required:
+      - "user_name"
+      - "message"
+    properties:
+      user_name:
+        type: "string"
+        example: "Juan"
+      message:
+        type: "string"
+        example: "Your appointment is tomorrow."
+      priority:
+        type: "string"
+        enum: ["low", "normal", "high"]
+        default: "normal"
+
+  NotificationResponse:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+        example: true
+
+  MessageResponse:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "User registered successfully"
+
+  ErrorResponse:
+    type: "object"
+    properties:
+      error:
+        type: "string"
+        example: "Missing Authorization header"
