@@ -1,219 +1,218 @@
-📄 Documento HTML: index.html
-🎯 Propósito
+📄 Documento HTML: index.html  
+🎯 Propósito  
 Este archivo representa la vista principal de la aplicación Flask para registrar usuarios. Permite al usuario:
-
 Ingresar su nombre.
 
-Especificar cuántos canales de contacto quiere registrar (hasta 5).
+Especificar cuántos canales de contacto quiere registrar (hasta 5).  
 
-Ingresar los datos de contacto (correo, teléfono, etc.).
+Ingresar los datos de contacto (correo, teléfono, etc.).  
 
-Seleccionar uno de los canales como canal preferido.
+Seleccionar uno de los canales como canal preferido.  
 
-También incluye navegación a otras vistas del sistema y muestra mensajes flash de éxito o error.
+También incluye navegación a otras vistas del sistema y muestra mensajes flash de éxito o error.  
 
-🧱 Estructura General
-Encabezado (<head>):
+🧱 Estructura General  
+Encabezado (<head>):  
 
-Define codificación UTF-8 y escala responsive.
+Define codificación UTF-8 y escala responsive.  
 
-Aplica estilos embebidos para apariencia profesional (contenedor centrado, botones estilizados, mensajes flash, etc.).
+Aplica estilos embebidos para apariencia profesional (contenedor centrado, botones estilizados, mensajes flash, etc.).  
 
-Cuerpo (<body>):
+Cuerpo (<body>):  
 
-Contenedor principal .container con título y navegación.
+Contenedor principal .container con título y navegación.  
 
-Bloque de mensajes flash ({% with messages = get_flashed_messages(...) %}) para mostrar errores o confirmaciones desde Flask.
+Bloque de mensajes flash ({% with messages = get_flashed_messages(...) %}) para mostrar errores o confirmaciones desde Flask.  
 
-Formulario de registro de usuario:
+Formulario de registro de usuario:  
 
-Campo de texto para el nombre del usuario.
+Campo de texto para el nombre del usuario.  
 
-Selector desplegable para elegir cuántos canales de contacto se desean agregar.
+Selector desplegable para elegir cuántos canales de contacto se desean agregar.  
 
-Área dinámica para agregar campos de entrada según la selección.
+Área dinámica para agregar campos de entrada según la selección.  
 
-Botón de envío.
+Botón de envío.  
 
-Script (<script>):
+Script (<script>):  
 
-La función generateContactFields() genera dinámicamente campos de contacto.
+La función generateContactFields() genera dinámicamente campos de contacto.  
 
-Cada campo incluye:
+Cada campo incluye:  
 
-Entrada de texto para el canal de contacto.
+Entrada de texto para el canal de contacto.  
 
-Radio button para marcarlo como canal preferido.
+Radio button para marcarlo como canal preferido.  
 
-Se ejecuta al cambiar la cantidad de canales seleccionados.
+Se ejecuta al cambiar la cantidad de canales seleccionados.  
 
-🔄 Interacción con Flask
-Ruta asociada en Flask:
-El formulario hace un POST a /users, que debería ser gestionado por el controlador que maneja el registro (@app.route("/users", methods=['POST'])).
+🔄 Interacción con Flask  
+Ruta asociada en Flask:  
+El formulario hace un POST a /users, que debería ser gestionado por el controlador que maneja el registro (@app.route("/users", methods=['POST'])).  
 
-Mensajes flash:
-Los mensajes como "Registro exitoso" o "Faltan datos" se muestran gracias a get_flashed_messages() de Flask, que se renderizan automáticamente en esta plantilla.
+Mensajes flash:  
+Los mensajes como "Registro exitoso" o "Faltan datos" se muestran gracias a get_flashed_messages() de Flask, que se renderizan automáticamente en esta plantilla.  
 
-🧪 Validaciones
-Todos los campos de entrada (input) están marcados como required para evitar envíos incompletos desde el lado del cliente.
+🧪 Validaciones  
+Todos los campos de entrada (input) están marcados como required para evitar envíos incompletos desde el lado del cliente.  
 
-La validación adicional (como formatos de contacto) debe manejarse en el servidor.
+La validación adicional (como formatos de contacto) debe manejarse en el servidor.  
 
-🧭 Navegación incluida
-Registrar Usuario → Página actual (/)
+🧭 Navegación incluida  
+Registrar Usuario → Página actual (/)  
 
-Ver Usuarios Registrados → /users
+Ver Usuarios Registrados → /users  
 
-Enviar Notificación → /send_notification
+Enviar Notificación → /send_notification  
 
-Esto permite al usuario interactuar con las demás funcionalidades del sistema de forma intuitiva.
+Esto permite al usuario interactuar con las demás funcionalidades del sistema de forma intuitiva.  
 
-📄 Documento HTML: users.html
-🎯 Propósito
-Este archivo sirve como vista en el patrón Modelo-Vista-Controlador (MVC) y está diseñado para:
+📄 Documento HTML: users.html  
+🎯 Propósito  
+Este archivo sirve como vista en el patrón Modelo-Vista-Controlador (MVC) y está diseñado para:  
 
-Mostrar todos los usuarios registrados en el sistema.
+Mostrar todos los usuarios registrados en el sistema.  
 
-Visualizar la cantidad y detalles de los canales de contacto de cada usuario.
+Visualizar la cantidad y detalles de los canales de contacto de cada usuario.  
 
-Navegar fácilmente a otras partes de la aplicación (registro y envío de notificaciones).
+Navegar fácilmente a otras partes de la aplicación (registro y envío de notificaciones).  
 
-Mostrar mensajes de éxito, advertencia o error provenientes del backend Flask.
+Mostrar mensajes de éxito, advertencia o error provenientes del backend Flask.  
 
-🧱 Estructura General
-Encabezado (<head>):
+🧱 Estructura General  
+Encabezado (<head>):  
 
-Define la codificación UTF-8 y diseño responsive.
+Define la codificación UTF-8 y diseño responsive.  
 
-Incluye estilos embebidos para el diseño visual: contenedor centrado, listas estilizadas, mensajes flash, enlaces de navegación, etc.
+Incluye estilos embebidos para el diseño visual: contenedor centrado, listas estilizadas, mensajes flash, enlaces de navegación, etc.  
 
-Cuerpo (<body>):
+Cuerpo (<body>):  
 
-Contenedor principal .container:
+Contenedor principal .container:  
 
-Título: "Usuarios Registrados".
+Título: "Usuarios Registrados".  
 
-Barra de navegación a otras vistas de la aplicación.
+Barra de navegación a otras vistas de la aplicación.  
 
-Línea divisoria (<hr>).
+Línea divisoria (<hr>).  
 
-Bloque de mensajes flash:
+Bloque de mensajes flash:  
 
-Usando bloques Jinja {% with %}, {% if %}, {% for %} para mostrar mensajes flash enviados por Flask.
+Usando bloques Jinja {% with %}, {% if %}, {% for %} para mostrar mensajes flash enviados por Flask.  
 
-Bloque de visualización condicional de usuarios:
+Bloque de visualización condicional de usuarios:  
 
-Si hay usuarios ({% if users %}), se recorre cada uno con for y se muestra:
+Si hay usuarios ({% if users %}), se recorre cada uno con for y se muestra:  
 
-Nombre del usuario (user.userName).
+Nombre del usuario (user.userName).  
 
-Cantidad de canales de contacto (user.numChannels).
+Cantidad de canales de contacto (user.numChannels).  
 
-Lista de canales (user.contactChannels, usando join(', ') para visualización).
+Lista de canales (user.contactChannels, usando join(', ') para visualización).  
 
-Canal preferido (user.preferredChannel).
+Canal preferido (user.preferredChannel).  
 
-Si no hay usuarios, se muestra el mensaje "No hay usuarios registrados aún.".
+Si no hay usuarios, se muestra el mensaje "No hay usuarios registrados aún.".  
 
-🔄 Interacción con Flask
-Variables renderizadas:
+🔄 Interacción con Flask  
+Variables renderizadas:  
 
-users: lista pasada por el backend Flask que contiene los usuarios registrados.
+users: lista pasada por el backend Flask que contiene los usuarios registrados.  
 
-Cada user es un objeto (posiblemente un diccionario o una instancia de clase personalizada) con atributos:
+Cada user es un objeto (posiblemente un diccionario o una instancia de clase personalizada) con atributos:  
 
-userName
+userName  
 
-numChannels
+numChannels  
 
-contactChannels (lista de strings)
+contactChannels (lista de strings)  
 
-preferredChannel (string)
+preferredChannel (string)  
 
-Mensajes flash:
+Mensajes flash:  
 
-Se muestran mensajes usando el sistema de flash() de Flask.
+Se muestran mensajes usando el sistema de flash() de Flask.  
 
-Cada mensaje tiene una categoría (success, error, warning, info) para aplicar diferentes estilos visuales.
+Cada mensaje tiene una categoría (success, error, warning, info) para aplicar diferentes estilos visuales.  
 
-🧭 Navegación incluida
-Registrar Usuario → /
+🧭 Navegación incluida  
+Registrar Usuario → /  
 
-Ver Usuarios Registrados → /users
+Ver Usuarios Registrados → /users  
 
-Enviar Notificación → /send_notification
+Enviar Notificación → /send_notification  
 
-Esto permite al usuario volver al formulario o a la funcionalidad de notificación fácilmente.
+Esto permite al usuario volver al formulario o a la funcionalidad de notificación fácilmente.  
 
-🧪 Validaciones y visualización
-No se realiza validación desde esta plantilla.
+🧪 Validaciones y visualización  
+No se realiza validación desde esta plantilla.  
 
-Se asume que los datos ya fueron validados al momento de ser registrados.
+Se asume que los datos ya fueron validados al momento de ser registrados.  
 
-Se usa un enfoque condicional para evitar mostrar una lista vacía si no hay usuarios.
+Se usa un enfoque condicional para evitar mostrar una lista vacía si no hay usuarios.  
 
-💡 Observaciones
-El uso de join(', ') para mostrar los canales de contacto es eficiente y legible.
+💡 Observaciones  
+El uso de join(', ') para mostrar los canales de contacto es eficiente y legible.  
 
-El diseño es claro, accesible y fácil de leer.
+El diseño es claro, accesible y fácil de leer.  
 
-Esta plantilla depende completamente del backend Flask para proveer los datos.
+Esta plantilla depende completamente del backend Flask para proveer los datos.  
 
-📄 Documento HTML: notification_form.html
-🎯 Propósito
-Esta plantilla HTML actúa como vista dentro del patrón Modelo-Vista-Controlador (MVC). Su objetivo principal es permitir que el usuario:
+📄 Documento HTML: notification_form.html  
+🎯 Propósito  
+Esta plantilla HTML actúa como vista dentro del patrón Modelo-Vista-Controlador (MVC). Su objetivo principal es permitir que el usuario:  
 
-Escriba un mensaje de notificación.
+Escriba un mensaje de notificación.  
 
-Seleccione su prioridad.
+Seleccione su prioridad.  
 
-Envíe la notificación al backend (ruta /notifications/send).
+Envíe la notificación al backend (ruta /notifications/send).  
 
-Navegue a otras secciones de la aplicación.
+Navegue a otras secciones de la aplicación.  
 
-Reciba retroalimentación visual mediante mensajes flash.
+Reciba retroalimentación visual mediante mensajes flash.  
 
-🧱 Estructura del Documento
-🧠 Encabezado (<head>)
-Metaetiquetas:
+🧱 Estructura del Documento  
+🧠 Encabezado (<head>)  
+Metaetiquetas:  
 
-charset="UTF-8": codificación de caracteres.
+charset="UTF-8": codificación de caracteres.  
 
-viewport: asegura que el diseño sea responsive.
+viewport: asegura que el diseño sea responsive.  
 
-Título de la página: Enviar Notificación.
+Título de la página: Enviar Notificación.  
 
-Estilos embebidos (<style>):
+Estilos embebidos (<style>):  
 
-Define diseño estético y responsivo.
+Define diseño estético y responsivo.  
 
-Estilo para contenedor principal, etiquetas, inputs, botones, navegación y mensajes flash.
+Estilo para contenedor principal, etiquetas, inputs, botones, navegación y mensajes flash.  
 
-Colores y sombras para mejorar la experiencia visual del usuario.
+Colores y sombras para mejorar la experiencia visual del usuario.  
 
-🧍‍♂️ Cuerpo (<body>)
-✅ Contenedor principal .container
-Encabezado principal: Enviar Notificación.
+🧍‍♂️ Cuerpo (<body>)  
+✅ Contenedor principal .container  
+Encabezado principal: Enviar Notificación.  
 
-🧭 Barra de Navegación
-html
-Copiar
-Editar
-<a href="/">Registrar Usuario</a> |
-<a href="/users">Ver Usuarios Registrados</a> |
-<a href="/send_notification">Enviar Notificación</a>
-Permite al usuario moverse entre las tres funcionalidades principales de la aplicación.
+🧭 Barra de Navegación  
+html  
+Copiar  
+Editar  
+<a href="/">Registrar Usuario</a> |  
+<a href="/users">Ver Usuarios Registrados</a> |  
+<a href="/send_notification">Enviar Notificación</a>  
+Permite al usuario moverse entre las tres funcionalidades principales de la aplicación.  
 
-🔁 Mensajes Flash
-Bloque Jinja que evalúa si hay mensajes flash del backend:
+🔁 Mensajes Flash  
+Bloque Jinja que evalúa si hay mensajes flash del backend:  
 
-jinja2
-Copiar
-Editar
-{% with messages = get_flashed_messages(with_categories=true) %}
-Si existen, los muestra en una lista con clases dinámicas (success, error, warning, info) para dar retroalimentación visual clara.
+jinja2  
+Copiar  
+Editar  
+{% with messages = get_flashed_messages(with_categories=true) %}  
+Si existen, los muestra en una lista con clases dinámicas (success, error, warning, info) para dar retroalimentación visual clara.  
 
-📤 Formulario de Envío de Notificación
+📤 Formulario de Envío de Notificación  
 html
 Copiar
 Editar
