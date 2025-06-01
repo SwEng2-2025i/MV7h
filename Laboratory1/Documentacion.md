@@ -60,6 +60,14 @@ Los canales de notificación (`EmailHandler`, `SMSHandler`, `CallHandler`) se en
 Las plantillas se encuentran separadas en su carpeta respectiva con el nombre de templates y son renderizadas a travez de jinja y los controladores estan bien definidos como funciones de Flask
 
 ---
+📘 Diagrama de Clases
+
+
+
+
+
+!["Captura de pantalla 2025-06-01 182805"](https://github.com/user-attachments/assets/00f24364-c75a-402e-95eb-2fd46ad00b54)
+
 
 ## 🚀 Instalación y ejecución
 
@@ -102,5 +110,6 @@ La interfaz se entrega en un formulario HTML con diseño simple, accesible en la
 
 
 
-![Captura de pantalla 2025-06-01 182805](https://github.com/user-attachments/assets/15d98f64-1a26-401d-978b-d0587bc0760e)
 
+
+!["Captura de pantalla 2025-06-01 182805"](https://github.com/user-attachments/assets/00f24364-c75a-402e-95eb-2fd46ad00b54)
