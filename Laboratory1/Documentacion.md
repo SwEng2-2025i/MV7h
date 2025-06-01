@@ -100,6 +100,7 @@ La interfaz se entrega en un formulario HTML con diseño simple, accesible en la
 
 📘 Diagrama de Clases
 
-![image](https://github.com/user-attachments/assets/dac7b3aa-39ca-4e95-8bd0-0294d564c6e2)
 
+
+![Captura de pantalla 2025-06-01 182805](https://github.com/user-attachments/assets/15d98f64-1a26-401d-978b-d0587bc0760e)
 
