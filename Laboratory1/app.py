@@ -4,7 +4,7 @@ import os
 import random  # <- Importado para simular fallos
 
 app = Flask(__name__)
-app.secret_key = 'tu_clave_secreta_aqui'  
+app.secret_key = 'secreto'  
 
 # Define la ruta para el archivo JSON
 DATA_FILE = 'data/all_data.json'
