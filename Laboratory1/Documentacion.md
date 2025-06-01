@@ -96,5 +96,10 @@ Intentando enviar mensaje por canal preferido: email
 Intentando canal alternativo: sms
 ✅ ÉXITO
 🖥️ Interfaz
-La interfaz se entrega en un formulario HTML con diseño simple, accesible en la raíz del servidor.
+La interfaz se entrega en un formulario HTML con diseño simple, accesible en la raíz del servidor.  
+
+📘 Diagrama de Clases
+
+![image](https://github.com/user-attachments/assets/dac7b3aa-39ca-4e95-8bd0-0294d564c6e2)
+
 
