@@ -7,7 +7,7 @@ El sistema consta de un archivo main principal que es el [`app.py`](app.py) Este
 |------|-------|----------|
 |GET   |/users  |Obtiene los usuarios registrados|
 |POST  |/users  |Registra un usuario
-|POST  |/notifications/send|Envia notifiación a un usuario al logearse
+|POST  |/notifications/send|Envia notifiación a un usuario al logearse.
 
 ### Payload & Response
 #### POST /users
