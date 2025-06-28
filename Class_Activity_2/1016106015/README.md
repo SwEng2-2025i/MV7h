@@ -4,27 +4,6 @@ Este proyecto simula un sistema distribuido compuesto por dos microservicios des
 
 ---
 
-## 📦 Estructura del Proyecto
-
-```
-📁 Example 5 - Integration Test/
-├── ServiceA/               # Microservicio A: Gestión de Usuarios
-│   └── app.py              # Código del microservicio (puerto 5001)
-│
-├── ServiceB/               # Microservicio B: Gestión de Tareas
-│   └── app.py              # Código del microservicio (puerto 5002)
-│
-├── Test/                   # Pruebas automáticas
-│   ├── BackEnd-Test.py     # Test integración backend (API REST)
-│   └── FrontEnd-Test.py    # Test E2E frontend con Selenium
-│
-└── reports/                # Carpeta donde se guardan los PDFs generados
-    ├── backend_report_001.pdf
-    └── frontend_report_001.pdf
-```
-
----
-
 ## ⚙️ Requisitos
 
 * Python 3.11 o superior
@@ -35,9 +14,6 @@ Este proyecto simula un sistema distribuido compuesto por dos microservicios des
 pip install flask flask_sqlalchemy flask_cors requests reportlab selenium
 ```
 
-> 💡 Si usas Windows, asegúrate de agregar `chromedriver.exe` a tu PATH o colócalo en el mismo directorio del script de prueba frontend.
-
----
 
 ## 🚀 Cómo ejecutar
 
@@ -71,7 +47,7 @@ Esto probará:
 * Verificar que hayan sido eliminados
 * Generar un reporte PDF con los resultados en la carpeta `reports`
 
-### 3. Ejecutar Prueba Frontend (opcional)
+### 3. Ejecutar Prueba Frontend
 
 ```bash
 python FrontEnd-Test.py
@@ -95,22 +71,3 @@ Cada vez que se ejecutan los tests, se genera un PDF con los pasos realizados, r
 Cada prueba incluye una fase de *cleanup* que elimina los usuarios y tareas creados durante la prueba, para garantizar un entorno limpio en cada ejecución.
 
 ---
-
-## 📌 Notas
-
-* Este proyecto no persiste los datos permanentemente (usa SQLite local).
-* El frontend está pensado como una prueba mínima simulada con Selenium.
-* No requiere autenticación, ni manejo de sesiones.
-
----
-
-## 📚 Créditos
-
-* Proyecto educativo con fines de práctica en pruebas de integración.
-* Tecnología usada: Flask, SQLite, Requests, Selenium, ReportLab.
-
----
-
-## 📬 Contacto
-
-Si tienes dudas o sugerencias, no dudes en abrir un issue o contactarme por correo.
